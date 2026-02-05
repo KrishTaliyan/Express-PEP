@@ -1,20 +1,34 @@
-let success = true;
+import jwt from 'jsonwebtoken';
+
+const SECRET_KEY = process.env.SECRET_KEY || 'your-secret-key-change-this';
 
 export const checkAuth = (req, res, next) => {
-    if (success) {
-        console.log("Auth Checked");
-        // Attach user info for downstream handlers. In real apps, derive from token/session.
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader) {
+        console.log("Auth Failed: No token provided");
+        return res.status(401).json({
+            message: "No token provided",
+            date: new Date().toISOString(),
+        });
+    }
+
+    const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : authHeader;
+
+    try {
+        const decoded = jwt.verify(token, SECRET_KEY);
+        console.log("Auth Checked: Token verified");
         req.user = {
-            name: process.env.TEST_USER_NAME || "Krish",
-            email: process.env.TEST_USER_EMAIL || "krish@example.com",
+            ...decoded,
             date: new Date().toISOString(),
         };
         return next();
-    } else {
-        console.log("Auth Failed");
+    } catch (error) {
+        console.log("Auth Failed: Invalid token", error.message);
         return res.status(401).json({
-            message: "Failed auth",
+            message: "Invalid or expired token",
             date: new Date().toISOString(),
+            error: error.message,
         });
     }
 };
