@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sort Numbers</title>
+</head>
+<body>
+    <h2>Enter Numbers (comma separated)</h2>
+
+    <input type="text" id="nums" placeholder="5,3,9,1">
+    <button onclick="sortData()">Sort</button>
+
+    <script>
+        function sortData() {
+            const values = document.getElementById("nums").value;
+            window.location.href = `/sort?data=${values}`;
+        }
+    </script>
+</body>
+</html>

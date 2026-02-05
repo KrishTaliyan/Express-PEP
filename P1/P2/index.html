@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Calculator using URL Params</h2>
+
+<input id="n1" placeholder="Enter number 1">
+<input id="n2" placeholder="Enter number 2">
+
+<br><br>
+<button onclick="calculate()">Calculate</button>
+
+<script>
+function calculate() {
+  const a = document.getElementById("n1").value;
+  const b = document.getElementById("n2").value;
+
+  window.location.href = `http://localhost:3000/calc/${a}/${b}`;
+}
+</script>
+
+</body>
+</html>

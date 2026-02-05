@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sum of Digits</title>
+</head>
+<body>
+    <h2>Sum of Digits</h2>
+
+    <input type="number" id="num">
+    <button onclick="send()">Find Sum</button>
+
+    <script>
+        function send() {
+            let n = document.getElementById("num").value;
+            window.location.href = "/sum?num=" + n;
+        }
+    </script>
+</body>
+</html>

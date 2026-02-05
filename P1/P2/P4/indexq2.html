@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Factorial Series</title>
+</head>
+<body>
+    <h2>Find Factorial Series</h2>
+
+    <input type="number" id="num" placeholder="Enter number">
+    <button onclick="send()">Find</button>
+
+    <script>
+        function send() {
+            let n = document.getElementById("num").value;
+            window.location.href = "/fact?num=" + n;
+        }
+    </script>
+</body>
+</html>

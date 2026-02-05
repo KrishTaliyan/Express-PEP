@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fibonacci</title>
+</head>
+<body>
+    <h2>Fibonacci Series</h2>
+
+    <input type="number" id="num" placeholder="Enter number">
+    <button onclick="getFib()">Generate</button>
+
+    <script>
+        function getFib() {
+            let n = document.getElementById("num").value;
+            window.location.href = "/fib?num=" + n;
+        }
+    </script>
+</body>
+</html>

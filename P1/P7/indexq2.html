@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Armstrong Numbers</title>
+</head>
+<body>
+    <h2>Armstrong Number Series</h2>
+
+    <input type="number" id="num" placeholder="Enter number">
+    <button onclick="getArm()">Generate</button>
+
+    <script>
+        function getArm() {
+            let n = document.getElementById("num").value;
+            window.location.href = "/arm?num=" + n;
+        }
+    </script>
+</body>
+</html>
